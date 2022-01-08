@@ -4,6 +4,7 @@ import Header from "./components/Header";
 import Products from "./components/Products";
 import Footer from "./components/Footer";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import ProductDetail from "./components/ProductDetail";
 
 function App() {
   let [productsList, setProductsList] = useState([
@@ -37,10 +38,9 @@ function App() {
           <Route
             path="/product/:id"
             exact
-            render={(props) => {
-              //product page to be rendered
-              return <></>;
-            }}
+            render={(props) => (
+              <ProductDetail {...props} productsList={productsList} />
+            )}
           />
         </Switch>
       </Router>

@@ -1,0 +1,58 @@
+@import url("https://fonts.googleapis.com/css?family=Oswald:400,500,600");
+@import url("https://fonts.googleapis.com/css?family=Roboto:400,500");
+
+.productdetail__product-detail-area {
+  display: flex;
+  justify-content: center;
+}
+.productdetail__product-detail-area__container {
+  display: flex;
+  width: 100%;
+  max-width: 1200px;
+  background-color: aqua;
+  padding: 20px;
+}
+.productdetail__product-detail-area__container__image {
+  max-width: 500px;
+  padding: 20px;
+}
+.productdetail__product-detail-area__container__image img {
+  width: 100%;
+}
+.productdetail__product-detail-area__container__products-text {
+  width: 100%;
+  padding: 5rem 3rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  background-color: azure;
+}
+
+.productdetail__product-detail-area__container__products-text h3 {
+  font-family: "Oswald", sans-serif;
+  font-size: 24px;
+  font-weight: 500;
+  color: #222;
+  margin-bottom: 20px;
+  line-height: 1.1;
+}
+
+.productdetail__product-detail-area__container__products-text h2 {
+  font-family: "Roboto", sans-serif;
+  font-size: 24px;
+  font-weight: 700;
+  color: #384aeb;
+  margin-bottom: 10px;
+}
+
+.productdetail__product-detail-area__container__products-text h2 {
+  padding-top: 20px;
+  border-top: 1px dotted #eeeeee;
+  border-bottom: 1px dotted #eeeeee;
+  margin-top: 20px;
+  padding-bottom: 26px;
+  margin-bottom: 0;
+}
+.buy-button {
+  padding: 10px 20px;
+}
