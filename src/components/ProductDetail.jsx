@@ -30,6 +30,17 @@ class ProductDetail extends React.Component {
       review_text: "",
     },
   };
+  constructor(props) {
+    super();
+    this.state.productid = parseInt(props.match.params.id);
+    this.state.currentproduct = props.productsList[this.state.productid];
+  }
+  componentWillReceiveProps(nextProps) {
+    this.state.productid = parseInt(nextProps.match.params.id);
+    this.setState({
+      currentproduct: nextProps.productsList[this.state.productid],
+    });
+  }
   handleWriteReview() {}
   handleBuy() {}
   render() {
