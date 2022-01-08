@@ -26,73 +26,47 @@
   - [ ] Admin pannel
 
 
+# Meta Basket ![MetaMask logo](logo.png?raw=true)
+
+### _A Decentralized-Rating-System_
 
 
-# This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Meta Basket is an online store which has a Decentralized,
+Blockchain Based, Secured and Trusted Rating System.
 
-## Available Scripts
+### _Why do we require a decentralized rating system ?_
+- Current rating systems are centralized having a complete 
+  control over the ratings database.
+- Central authorities can edit / delete negative ratings to avoid their defamation.
+- It can led to huge rating scams with a purpose to attract buyers.
 
-In the project directory, you can run:
 
-### `npm start`
+### _How Blockchain will solve this problem ?_
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+- A Blockchain network is a decentralized, distributed ledger which 
+  has rigorous Cryptographic concepts, Consensus mechanisms which 
+  makes it reliable, trustworthy and impossible to hack.
+- Any thing written in blockchain can’t be removed unless done legally, making rating systems      and consumer friendly
+- It will also ensure that our system doesn't have single point of faliure.
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
 
-### `npm test`
+## Features
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+- Provides trustworthy ratings for products.
+- Ratings can't be manipulated illegally.
+- Secured p2p payments using MetaMask.
+- User friendly and clean UI
 
-### `npm run build`
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## Tech
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+- [Ethereum Blockchain](https://ethereum.org/en/)
+- [MetaMask](https://metamask.io/)
+- [Remix](https://remix.ethereum.org/)
+- [React](https://reactjs.org/)
+- [Firebase](https://firebase.google.com/)
+- [JavaScript](https://www.javascript.com/)
+- [Bootstrap](https://getbootstrap.com/)
+- [HTML & CSS](https://developer.mozilla.org/en-US/docs/Web/HTML)
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
