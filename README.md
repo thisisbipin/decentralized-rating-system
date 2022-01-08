@@ -46,7 +46,7 @@ Blockchain Based, Secured and Trusted Rating System.
 - A Blockchain network is a decentralized, distributed ledger which 
   has rigorous Cryptographic concepts, Consensus mechanisms which 
   makes it reliable, trustworthy and impossible to hack.
-- Any thing written in blockchain can’t be removed unless done legally, making rating systems      and consumer friendly
+- Any thing written in blockchain can’t be removed unless done legally, making rating systems consumer friendly.
 - It will also ensure that our system doesn't have single point of faliure.
 
 
@@ -55,7 +55,7 @@ Blockchain Based, Secured and Trusted Rating System.
 - Provides trustworthy ratings for products.
 - Ratings can't be manipulated illegally.
 - Secured p2p payments using MetaMask.
-- User friendly and clean UI
+- User friendly and clean UI.
 
 
 ## Tech
