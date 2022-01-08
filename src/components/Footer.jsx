@@ -4,7 +4,7 @@ import buy_with_meta_mask from "../assets/Metamask-logo.jpg";
 function Footer() {
   return (
     <footer className="footer">
-      <div className="container">
+      <div className="footer__container container">
         <div className="footer__row row">
           <div className="col-sm-3">
             <h4 className="title">Meta Basket</h4>
@@ -14,19 +14,15 @@ function Footer() {
             </p>
           </div>
 
-          <div className="col-sm-3">
+          <div className="col-sm-3 payment-div">
             <h4 className="title">Payment Methods</h4>
             <p>you can pay with Meta Mask</p>
             <ul className="payment">
               <li>
                 <a href="#">
-                  <i className="fa fa-cc-amex" aria-hidden="true">
-                    <img
-                      src={buy_with_meta_mask}
-                      className="footer__buy_with_meta_mask"
-                      alt=""
-                    />
-                  </i>
+                  <div className="footer__buy_with_meta_mask">
+                    <img src={buy_with_meta_mask} alt="" />
+                  </div>
                 </a>
               </li>
             </ul>

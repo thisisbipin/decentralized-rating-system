@@ -2,6 +2,9 @@
   padding: 50px 0 20px 0;
   background-color: #35404f;
   color: #878c94;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 .footer .title {
   text-align: left;
@@ -37,7 +40,25 @@
   opacity: 0.8;
 }
 
+.footer__buy_with_meta_mask img {
+  width: 100%;
+}
 .footer__buy_with_meta_mask:hover {
   opacity: 1;
   transform: translateY(-5px);
+}
+
+.payment-div {
+  width: 25%;
+}
+@media screen and (max-width: 1054px) {
+  .payment-div {
+    width: 50%;
+  }
+}
+@media screen and (min-width: 1221px) {
+  .footer__container {
+    max-width: 1200px;
+    padding: 0px 40px;
+  }
 }

@@ -9,10 +9,10 @@
   display: flex;
   width: 100%;
   max-width: 1200px;
-  background-color: aqua;
   padding: 20px;
 }
 .productdetail__product-detail-area__container__image {
+  /* background-color: aqua; */
   max-width: 500px;
   padding: 20px;
 }
@@ -55,4 +55,14 @@
 }
 .buy-button {
   padding: 10px 20px;
+}
+@media screen and (max-width: 991px) {
+  .productdetail__product-detail-area__container {
+    flex-direction: column;
+  }
+  .productdetail__product-detail-area__container__image {
+    width: 100%;
+    padding: 20px 50px;
+    max-width: 990px;
+  }
 }
