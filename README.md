@@ -1,6 +1,34 @@
-# Getting Started with Create React App
+# TODO's
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+- Blockchain Smart Contract
+  - [x] Basic Contract ( get Reviews functionality )
+  - [x] Handling buyer's auth
+  - [x] Buy product, Add product feature
+  - [ ] Owner auth
+  - [ ] Reward System
+  - [ ] Compile and Deploy
+
+- Front End
+  - [x] Product Details Page
+  - [x] Product Review Section
+  - [x] Firebase Integration
+  - [ ]  Blockchain Integration
+  - [ ]  UI Enhancements
+
+
+# Planning TODO or NOT 
+
+- Blockchain 
+  - [ ] Implement meta transactions ( biconomy )
+  - [ ] Find way to reduce gas fee
+
+- Front End
+  - [ ] Admin pannel
+
+
+
+
+# This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
 
