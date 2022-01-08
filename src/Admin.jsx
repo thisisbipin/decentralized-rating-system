@@ -44,10 +44,10 @@ class Admin extends React.Component {
           </div>
           <div className="form-group text-center text-md-right mt-3">
             <button
-              className="btn btn-primary"
+              className="btn btn-success"
               onClick={this.handleWriteReview}
             >
-              <i className="fa-solid fa-pen-nib"></i> | Write my Review
+              Create Product
             </button>
           </div>
         </form>
