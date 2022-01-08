@@ -1,15 +1,55 @@
 import React from "react";
 import "./css/products.css";
-import { BrowserRouter as Router, Link } from "react-router-dom";
+import { Link } from "react-router-dom";
+
+import web3 from "../web3";
+import { ratingAbi, ratingAddress } from "../Rating";
 
 class Products extends React.Component {
-  state = {
-    products: [],
-  };
+
   constructor(props) {
     super(props);
+    this.state = {
+      products: [],
+      ismetamaskavailable: true,
+      ratingContract: undefined,
+      ratings_array: [],
+    };
     this.state.products = props.productsList;
   }
+
+  componentWillMount() {
+    this.loadBlockchainData(this.props.dispatch);
+  }
+
+  async loadBlockchainData() {
+    let accounts;
+    try {
+      accounts = await web3.eth.getAccounts();
+    } catch (err) {
+      this.state.ismetamaskavailable = false;
+      console.log("please install metamask");
+      return;
+    }
+    this.setState({ account: accounts[0] });
+
+    const ratingContract = new web3.eth.Contract(ratingAbi, ratingAddress);
+    this.setState({ ratingContract });
+    console.log(ratingContract);
+
+    // const count = await ratingContract.methods.getCount(1).call();
+    // const points = await ratingContract.methods.getPoints(1).call();
+    // console.log(count,points);
+
+  }
+
+  // getRatingsWithPid(pid) {
+  //   console.log(pid);
+   
+  //   // if(count==0) return 0;
+  //   // return points/count;
+  // }
+
   componentWillReceiveProps(nextProps) {
     this.setState({ products: nextProps.productsList });
   }
@@ -32,7 +72,7 @@ class Products extends React.Component {
                   />
                   <div className="products__products-container__card__card-body card-body">
                     <h5>{eachproduct.Name}</h5>
-                    <h6>Rating: 5 ⭐ </h6>
+                    <h6>Rating: {this.getRatingsWithPid(eachproduct.PID)} ⭐ </h6>
                     <p className="products__products-container__card__card-text card-text">
                       {eachproduct.Details}
                     </p>

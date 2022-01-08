@@ -1,6 +1,6 @@
-export const RatingAddress = "0x64ebD76Ff9B2e72E0f6BDE792e1431C28BD8E14B";
+export const ratingAddress = "0x64ebD76Ff9B2e72E0f6BDE792e1431C28BD8E14B";
 
-export const RatingAbi = [
+export const ratingAbi = [
 	{
 		"inputs": [],
 		"stateMutability": "nonpayable",
