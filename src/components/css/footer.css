@@ -1,0 +1,37 @@
+.footer {
+  padding: 50px 0 20px 0;
+  background-color: #35404f;
+  color: #878c94;
+}
+.footer .title {
+  text-align: left;
+  color: #fff;
+  font-size: 25px;
+}
+.footer__row {
+  display: flex;
+  justify-content: space-between;
+}
+.footer .payment {
+  margin: 0px;
+  padding: 0px;
+  list-style-type: none;
+}
+.footer .payment li {
+  list-style-type: none;
+}
+.footer .payment li a {
+  text-decoration: none;
+  display: inline-block;
+  color: #fff;
+  float: left;
+  font-size: 25px;
+  padding: 10px 10px;
+}
+.footer__buy_with_meta_mask {
+  width: 240px;
+  padding: 10px 20px;
+  background-color: white;
+  border-radius: 5px;
+  cursor: pointer;
+}

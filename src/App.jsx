@@ -2,6 +2,7 @@ import "./App.css";
 import React, { useState } from "react";
 import Header from "./components/Header";
 import Products from "./components/Products";
+import Footer from "./components/Footer";
 
 function App() {
   let [productsList, setProductsList] = useState([
@@ -24,6 +25,7 @@ function App() {
     <>
       <Header />
       <Products productsList={productsList} />
+      <Footer />
     </>
   );
 }
