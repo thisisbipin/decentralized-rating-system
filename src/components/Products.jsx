@@ -46,8 +46,6 @@ class Products extends React.Component {
 
   }
 
-  
-
   componentWillReceiveProps(nextProps) {
     this.setState({ products: nextProps.productsList });
     console.log(this.state.products);

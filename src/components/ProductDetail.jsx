@@ -2,6 +2,9 @@ import React from "react";
 import { Link } from "react-router-dom";
 import "./css/productdetail.css";
 
+import web3 from "../web3";
+import { ratingAbi, ratingAddress } from "../Rating";
+
 let temptestReviewList = [
   {
     name: "Firefox",
@@ -20,29 +23,84 @@ let temptestReviewList = [
 ];
 
 class ProductDetail extends React.Component {
-  state = {
-    productid: 0,
-    currentproduct: null,
-
-    createrating: {
-      name: "",
-      star: 0,
-      review_text: "",
-    },
-  };
+  
   constructor(props) {
-    super();
+    super(props);
+    this.state = {
+      temptestReviewList: [],
+      count: 0,
+      points: 0,
+      ratingContract: undefined,
+      productid: 0,
+      currentproduct: null,
+      productPrice: 0,
+      account:"",
+      createrating: {
+        name: "",
+        star: 0,
+        review_text: "",
+      },
+    };
     this.state.productid = parseInt(props.match.params.id);
     this.state.currentproduct = props.productsList[this.state.productid];
+
   }
+
+  componentWillMount() {
+    this.loadBlockchainData(this.props.dispatch);
+  }
+
+  async loadBlockchainData() {
+    let accounts;
+    try {
+      accounts = await web3.eth.getAccounts();
+    } catch (err) {
+      this.state.ismetamaskavailable = false;
+      console.log("please install metamask");
+      return;
+    }
+
+    this.setState({ account: accounts[0] });
+
+    const ratingContract = new web3.eth.Contract(ratingAbi, ratingAddress);
+    this.setState({ ratingContract });
+    console.log(ratingContract);
+
+    
+
+    const count = await ratingContract.methods.getCount(this.state.productid).call();
+    let points = await ratingContract.methods.getPoints(this.state.productid).call();
+    this.setState({count});
+    this.setState({points});
+
+    const temptestReviewList = await ratingContract.methods.getReviewList(this.state.productid).call();
+    this.setState({temptestReviewList});
+    console.log(temptestReviewList);
+
+  }
+
   componentWillReceiveProps(nextProps) {
     this.state.productid = parseInt(nextProps.match.params.id);
     this.setState({
       currentproduct: nextProps.productsList[this.state.productid],
     });
   }
-  handleWriteReview() {}
-  handleBuy() {}
+
+
+  async handleWriteReview(e) {
+    e.preventDefault();
+    await this.state.ratingContract.methods.createRating(this.state.productid,this.state.createrating.name,this.state.createrating.star,this.state.createrating.review_text).send({
+      from: this.state.account,
+    });
+  }
+
+  async handleBuy(Pprice) { 
+    await this.state.ratingContract.methods.buyProduct(this.state.productid).send({
+      from: this.state.account,
+      value: web3.utils.toWei(Pprice+"","ether"),
+    });
+  }
+
   render() {
     return (
       <>
@@ -65,7 +123,7 @@ class ProductDetail extends React.Component {
               <div className="productdetail__product-detail-area__container__products-text__buy-btn">
                 <button
                   className="btn btn-warning buy-button"
-                  onClick={this.handleBuy}
+                  onClick={()=>this.handleBuy(this.state.currentproduct.Price)}
                 >
                   <i className="fa-solid fa-cart-shopping"></i> Buy with Meta
                   Mask
@@ -82,12 +140,12 @@ class ProductDetail extends React.Component {
                 <div className="productdetail__product-review-area__container__content__reviews__overallreview">
                   <div className="overallreview-container">
                     <h5>Overall</h5>
-                    <h4>4.0</h4>
-                    <h6>(03 Reviews)</h6>
+                    <h4>{this.state.count==0 ? 0 : this.state.points/this.state.count}</h4>
+                    <h6>({this.state.count} Reviews)</h6>
                   </div>
                 </div>
                 <div className="productdetail__product-review-area__container__content__reviews__all-reviews">
-                  {temptestReviewList.map((eachreview) => {
+                  {this.state.temptestReviewList.map((eachreview) => {
                     return (
                       <div
                         key={temptestReviewList.findIndex(
@@ -106,7 +164,7 @@ class ProductDetail extends React.Component {
                             <span>
                               {this.setStars(eachreview.star)}
                               <span className="review-card__name_details__name__date">
-                                {new Date(eachreview.date)
+                                {new Date(parseInt(eachreview.time)*1000)
                                   .toString()
                                   .substr(0, 16)}
                               </span>
@@ -153,14 +211,7 @@ class ProductDetail extends React.Component {
                       onChange={(e) => this.handleInput(e.target.value, "name")}
                     />
                   </div>
-                  <div className="form-group">
-                    <input
-                      className="form-control"
-                      name="subject"
-                      type="text"
-                      placeholder="Enter Subject"
-                    />
-                  </div>
+            
                   <div className="form-group">
                     <textarea
                       className="form-control different-control w-100"
@@ -177,7 +228,7 @@ class ProductDetail extends React.Component {
                   <div className="form-group text-center text-md-right mt-3">
                     <button
                       className="btn btn-primary"
-                      onClick={this.handleWriteReview}
+                      onClick={(e)=>this.handleWriteReview(e)}
                     >
                       <i className="fa-solid fa-pen-nib"></i> | Write my Review
                     </button>
@@ -212,8 +263,8 @@ class ProductDetail extends React.Component {
       rate -= 1;
       classes.push("fa-solid fa-star " + extraclass);
     }
-    if (classes.length < 5 && rate * 10 > 0)
-      classes.push("fa-solid fa-star-half-stroke " + extraclass);
+    // if (classes.length < 5 && rate * 10 > 0)
+    //   classes.push("fa-solid fa-star-half-stroke " + extraclass);
 
     while (classes.length < 5) classes.push("fa-regular fa-star " + extraclass);
     let key = 0;
