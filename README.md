@@ -5,8 +5,8 @@
   - [x] Handling buyer's auth
   - [x] Buy product, Add product feature
   - [x] Owner auth
-  - [ ] Reward System
-  - [ ] Compile and Deploy
+  - [x] Reward System
+  - [x] Compile and Deploy
 
 - Front End
   - [x] Product Details Page
