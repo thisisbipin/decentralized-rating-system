@@ -4,6 +4,8 @@
 .productdetail__product-detail-area {
   display: flex;
   justify-content: center;
+  align-items: center;
+  width: 100%;
 }
 .productdetail__product-detail-area__container {
   display: flex;
@@ -70,6 +72,8 @@
 /*---------- Ratings --------*/
 .productdetail__product-review-area {
   width: 100%;
+  display: flex;
+  justify-content: center;
 }
 .productdetail__product-review-area__container {
   width: 100%;
