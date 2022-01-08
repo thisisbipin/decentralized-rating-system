@@ -9,6 +9,7 @@ import ProductDetail from "./components/ProductDetail";
 /* Firebase imports */
 import { db } from "./components/firebase/Fire";
 import fire from "./components/firebase/Fire";
+import Admin from "./Admin";
 
 function App() {
   let [productsList, setProductsList] = useState([
@@ -63,6 +64,7 @@ function App() {
               <ProductDetail {...props} productsList={productsList} />
             )}
           />
+          <Route path="/admin" exact render={() => <Admin />} />
         </Switch>
       </Router>
       <Footer />
