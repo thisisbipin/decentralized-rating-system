@@ -22,7 +22,6 @@
 }
 .footer .payment li a {
   text-decoration: none;
-  display: inline-block;
   color: #fff;
   float: left;
   font-size: 25px;
@@ -34,4 +33,11 @@
   background-color: white;
   border-radius: 5px;
   cursor: pointer;
+  transition: all 0.2s ease;
+  opacity: 0.8;
+}
+
+.footer__buy_with_meta_mask:hover {
+  opacity: 1;
+  transform: translateY(-5px);
 }
