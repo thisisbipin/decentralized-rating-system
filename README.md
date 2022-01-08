@@ -7,13 +7,15 @@
   - [x] Owner auth
   - [x] Reward System
   - [x] Compile and Deploy
-  - [ ] Deploy on Polygon with Remix
+  - [x] Deploy on Polygon with Remix
+
+  Contract deployed to address 0x6aAB3f431d01a36d380188652cAaA73877becc15 with remix.
 
 - Front End
   - [x] Product Details Page
   - [x] Product Review Section
   - [x] Firebase Integration
-  - [ ]  Blockchain Integration
+  - [x]  Blockchain Integration
   - [ ]  UI Enhancements
 
 
