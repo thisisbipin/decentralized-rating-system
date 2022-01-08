@@ -22,7 +22,16 @@ class ProductDetail extends React.Component {
   state = {
     productid: 0,
     currentproduct: null,
+
+    createrating: {
+      productid: "-1",
+      name: "",
+      star: 0,
+      review_text: "",
+    },
   };
+  handleWriteReview() {}
+  handleBuy() {}
   render() {
     return (
       <>
@@ -46,7 +55,10 @@ class ProductDetail extends React.Component {
                 </p>
               </div>
               <div className="productdetail__product-detail-area__container__products-text__buy-btn">
-                <button className="btn btn-warning buy-button">
+                <button
+                  className="btn btn-warning buy-button"
+                  onClick={this.handleBuy}
+                >
                   <i className="fa-solid fa-cart-shopping"></i> Buy with Meta
                   Mask
                 </button>
@@ -67,37 +79,59 @@ class ProductDetail extends React.Component {
                   </div>
                 </div>
                 <div className="productdetail__product-review-area__container__content__reviews__all-reviews">
-                  <div className="productdetail__product-review-area__container__content__reviews__all-reviews__review-card">
-                    <div className="review-card__name_details">
-                      <div className="review-card__image">
-                        <img
-                          src={`https://avatars.dicebear.com/api/human/${Date.now()}.svg`}
-                        />
+                  {temptestReviewList.map((eachreview) => {
+                    return (
+                      <div
+                        key={temptestReviewList.findIndex(
+                          (x) => x == eachreview
+                        )}
+                        className="productdetail__product-review-area__container__content__reviews__all-reviews__review-card"
+                      >
+                        <div className="review-card__name_details">
+                          <div className="review-card__name_details__image">
+                            <img
+                              src={`https://avatars.dicebear.com/api/human/${eachreview.date}.svg`}
+                            />
+                          </div>
+                          <div className="review-card__name_details__name">
+                            <h2>{eachreview.name}</h2>
+                            <span>
+                              {setStars(eachreview.star)}
+                              <span className="review-card__name_details__name__date">
+                                {new Date(eachreview.date)
+                                  .toString()
+                                  .substr(0, 16)}
+                              </span>
+                            </span>
+                          </div>
+                        </div>
+                        <div className="review-card__review-text">
+                          <p>{eachreview.review}</p>
+                        </div>
                       </div>
-                      <div className="">
-                        <h2>Name</h2>
-                        <span>
-                          Stars
-                          <span>date</span>
-                        </span>
-                      </div>
-                    </div>
-                    <div className="review-card__review-text">
-                      <p>
-                        Lorem ipsum dolor sit amet, consectetur adipisicing
-                        elit, sed do eiusmod tempor incididunt ut labore et
-                        dolore magna aliqua. Ut enim ad minim veniam, quis
-                        nostrud exercitation ullamco laboris nisi ut aliquip ex
-                        ea commodo
-                      </p>
-                    </div>
-                  </div>
+                    );
+                  })}
                 </div>
               </div>
               <div className="productdetail__product-review-area__container__content__create-review-box">
                 <h4>Add a Review</h4>
-                <p>Your Rating: </p>
-                <i className="fa fa-star"></i>
+                <span>
+                  <h5>
+                    Your Rating:
+                    <input
+                      type="text"
+                      onChange={(e) => {
+                        if (parseFloat(e.target.value) > 5) {
+                          console.log(e.target.value);
+                          e.target.value = 5;
+                        }
+                        this.handleInput(e.target.value, "stars");
+                      }}
+                      style={{ width: "50px" }}
+                    />
+                    {setStars(this.state.createrating.star, "yellow set-stars")}
+                  </h5>
+                </span>
                 <form action="#/" className="form-contact form-review mt-3">
                   <div className="form-group">
                     <input
@@ -106,6 +140,7 @@ class ProductDetail extends React.Component {
                       type="text"
                       placeholder="Enter your name"
                       required=""
+                      onChange={(e) => this.handleInput(e.target.value, "name")}
                     />
                   </div>
                   <div className="form-group">
@@ -124,11 +159,17 @@ class ProductDetail extends React.Component {
                       cols="30"
                       rows="5"
                       placeholder="Enter Message"
+                      onChange={(e) =>
+                        this.handleInput(e.target.value, "review-text")
+                      }
                     ></textarea>
                   </div>
                   <div className="form-group text-center text-md-right mt-3">
-                    <button type="submit" className="btn btn-primary">
-                      Submit Now
+                    <button
+                      className="btn btn-primary"
+                      onClick={this.handleWriteReview}
+                    >
+                      <i className="fa-solid fa-pen-nib"></i> | Write my Review
                     </button>
                   </div>
                 </form>
@@ -139,6 +180,38 @@ class ProductDetail extends React.Component {
       </>
     );
   }
+  handleInput(value, type) {
+    switch (type) {
+      case "name":
+        this.state.createrating.name = value;
+        break;
+      case "review-text":
+        this.state.createrating.review_text = value;
+        break;
+      case "stars":
+        this.setState({
+          createrating: { ...this.createrating, star: parseFloat(value) },
+        });
+        break;
+    }
+    console.log(this.state.createrating);
+  }
 }
 
+function setStars(rate, extraclass = "yellow") {
+  if (rate >= 5) rate = 5;
+  let classes = [];
+  while (rate > 0.9) {
+    rate -= 1;
+    classes.push("fa-solid fa-star " + extraclass);
+  }
+  if (classes.length < 5 && rate * 10 > 0)
+    classes.push("fa-solid fa-star-half-stroke " + extraclass);
+
+  while (classes.length < 5) classes.push("fa-regular fa-star " + extraclass);
+  let key = 0;
+  return classes.map((eachstar) => (
+    <i key={(key += 1)} className={eachstar}></i>
+  ));
+}
 export default ProductDetail;
