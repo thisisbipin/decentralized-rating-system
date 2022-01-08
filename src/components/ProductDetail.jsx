@@ -46,7 +46,7 @@ class ProductDetail extends React.Component {
                 </p>
               </div>
               <div className="productdetail__product-detail-area__container__products-text__buy-btn">
-                <button className="btn btn-warning buy-button" href="#">
+                <button className="btn btn-warning buy-button">
                   <i className="fa-solid fa-cart-shopping"></i> Buy with Meta
                   Mask
                 </button>
@@ -54,7 +54,88 @@ class ProductDetail extends React.Component {
             </div>
           </div>
         </section>
-        <section className="productdetail__product-review-area">Review</section>
+
+        <section className="productdetail__product-review-area">
+          <div className="productdetail__product-review-area__container">
+            <div className="productdetail__product-review-area__container__content">
+              <div className="productdetail__product-review-area__container__content__reviews">
+                <div className="productdetail__product-review-area__container__content__reviews__overallreview">
+                  <div className="overallreview-container">
+                    <h5>Overall</h5>
+                    <h4>4.0</h4>
+                    <h6>(03 Reviews)</h6>
+                  </div>
+                </div>
+                <div className="productdetail__product-review-area__container__content__reviews__all-reviews">
+                  <div className="productdetail__product-review-area__container__content__reviews__all-reviews__review-card">
+                    <div className="review-card__name_details">
+                      <div className="review-card__image">
+                        <img
+                          src={`https://avatars.dicebear.com/api/human/${Date.now()}.svg`}
+                        />
+                      </div>
+                      <div className="">
+                        <h2>Name</h2>
+                        <span>
+                          Stars
+                          <span>date</span>
+                        </span>
+                      </div>
+                    </div>
+                    <div className="review-card__review-text">
+                      <p>
+                        Lorem ipsum dolor sit amet, consectetur adipisicing
+                        elit, sed do eiusmod tempor incididunt ut labore et
+                        dolore magna aliqua. Ut enim ad minim veniam, quis
+                        nostrud exercitation ullamco laboris nisi ut aliquip ex
+                        ea commodo
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div className="productdetail__product-review-area__container__content__create-review-box">
+                <h4>Add a Review</h4>
+                <p>Your Rating: </p>
+                <i className="fa fa-star"></i>
+                <form action="#/" className="form-contact form-review mt-3">
+                  <div className="form-group">
+                    <input
+                      className="form-control"
+                      name="name"
+                      type="text"
+                      placeholder="Enter your name"
+                      required=""
+                    />
+                  </div>
+                  <div className="form-group">
+                    <input
+                      className="form-control"
+                      name="subject"
+                      type="text"
+                      placeholder="Enter Subject"
+                    />
+                  </div>
+                  <div className="form-group">
+                    <textarea
+                      className="form-control different-control w-100"
+                      name="textarea"
+                      id="textarea"
+                      cols="30"
+                      rows="5"
+                      placeholder="Enter Message"
+                    ></textarea>
+                  </div>
+                  <div className="form-group text-center text-md-right mt-3">
+                    <button type="submit" className="btn btn-primary">
+                      Submit Now
+                    </button>
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+        </section>
       </>
     );
   }
