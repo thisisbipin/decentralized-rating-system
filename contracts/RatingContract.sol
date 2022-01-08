@@ -4,6 +4,9 @@ contract RatingContract {
 
     mapping(uint => uint) productPrice; // number of wei for each pId
 
+    uint curPendingBuyers = 0;
+    uint constant rewardInWei = 4200000000000000;
+
     address payable private owner; //The deployer of the contract(store owner)
 
     constructor() {
@@ -55,11 +58,13 @@ contract RatingContract {
     
     // Function for users to give rating for a product
     function createRating(uint pId, string memory name, uint8 _star, string memory _review) public {
-        require(productReviewMap[pId].validateUser[address(msg.sender)]==true,"Your not allowed to rate");
+        require(productReviewMap[pId].validateUser[address(msg.sender)]==true,"You are not allowed to rate");
         productReviewMap[pId].validateUser[msg.sender]=false;
         productReviewMap[pId].count+=1;
         productReviewMap[pId].points+=_star;
-        productReviewMap[pId].reviewList.push(Rating(name,block.timestamp, _star, _review));       
+        productReviewMap[pId].reviewList.push(Rating(name,block.timestamp, _star, _review));
+        payable(msg.sender).transfer(rewardInWei);
+        curPendingBuyers--;   
     }
 
     //------------------------------------------------------------------------
@@ -70,6 +75,7 @@ contract RatingContract {
     function buyProduct(uint pId) public payable {
         require(productPrice[pId]==msg.value,"Please pay the correct price");
         productReviewMap[pId].validateUser[address(msg.sender)] = true;
+        curPendingBuyers++;
         
     }
 
@@ -82,7 +88,7 @@ contract RatingContract {
 
     //To withdraw all contract's balance to the owner
     function withDraw() public restricted {
-        owner.transfer(address(this).balance);
+        owner.transfer(address(this).balance - (rewardInWei*curPendingBuyers));
     }
 
     //--------------------------------------------------------------------------
