@@ -7,6 +7,7 @@
   - [x] Owner auth
   - [x] Reward System
   - [x] Compile and Deploy
+  - [ ] Deploy on Polygon with Remix
 
 - Front End
   - [x] Product Details Page
@@ -20,7 +21,7 @@
 
 - Blockchain 
   - [ ] Implement meta transactions ( biconomy )
-  - [ ] Find way to reduce gas fee
+  - [x] Find way to reduce gas fee
 
 - Front End
   - [ ] Admin pannel
