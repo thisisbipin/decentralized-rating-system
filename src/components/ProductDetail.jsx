@@ -97,7 +97,7 @@ class ProductDetail extends React.Component {
   async handleBuy(Pprice) { 
     await this.state.ratingContract.methods.buyProduct(this.state.productid).send({
       from: this.state.account,
-      value: web3.utils.toWei(Pprice+"","ether"),
+      value: Pprice*1000*1000000000000000000,
     });
   }
 
@@ -117,7 +117,7 @@ class ProductDetail extends React.Component {
             <div className="productdetail__product-detail-area__container__products-text">
               <div className="productdetail__product-detail-area__container__products-text__text">
                 <h3>{this.state.currentproduct.Name}</h3>
-                <h2>${this.state.currentproduct.Price}</h2>
+                <h2>{this.state.currentproduct.Price*1000} Matic</h2>
                 <p>{this.state.currentproduct.Details}</p>
               </div>
               <div className="productdetail__product-detail-area__container__products-text__buy-btn">

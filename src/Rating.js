@@ -1,4 +1,4 @@
-export const ratingAddress = "0x64ebD76Ff9B2e72E0f6BDE792e1431C28BD8E14B";
+export const ratingAddress = "0x6aAB3f431d01a36d380188652cAaA73877becc15";
 
 export const ratingAbi = [
 	{
