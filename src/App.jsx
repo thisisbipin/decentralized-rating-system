@@ -42,7 +42,7 @@ function App() {
         products = products.sort((a, b) => {
           return a.PID < b.PID ? -1 : a.PID > b.PID ? 1 : 0;
         });
-        console.log(products);
+        //console.log(products);
         setProductsList(products);
       });
   }, []);
