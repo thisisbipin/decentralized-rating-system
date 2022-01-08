@@ -29,20 +29,20 @@
   padding: 20px;
 }
 .productdetail__product-detail-area__container__image {
-  /* background-color: aqua; */
-  max-width: 500px;
+  /* max-width: 500px;/ */
+  flex: 0.5;
   padding: 20px;
 }
 .productdetail__product-detail-area__container__image img {
   width: 100%;
 }
 .productdetail__product-detail-area__container__products-text {
-  width: 100%;
+  flex: 0.5;
+  /* width: 100%; */
   padding: 5rem 3rem;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  background-color: azure;
 }
 
 .productdetail__product-detail-area__container__products-text h3 {
