@@ -1,6 +1,7 @@
 import React from "react";
 import "./css/header.css";
 import meta_basket_logo from "../assets/meta-basket-icon.png";
+import { Link } from "react-router-dom";
 
 class Header extends React.Component {
   render() {
@@ -8,14 +9,16 @@ class Header extends React.Component {
       <>
         <nav className="header navbar navbar-expand-lg navbar-light bg-light">
           <div className="container-fluid">
-            <a className="navbar-brand" href="#">
-              <img
-                src={meta_basket_logo}
-                alt="Meta Basket Logo"
-                className="header__brand__img"
-              />
-              Meta Basket
-            </a>
+            <Link to="/">
+              <a className="navbar-brand" href="#">
+                <img
+                  src={meta_basket_logo}
+                  alt="Meta Basket Logo"
+                  className="header__brand__img"
+                />
+                Meta Basket
+              </a>
+            </Link>
             <button
               className="navbar-toggler"
               type="button"

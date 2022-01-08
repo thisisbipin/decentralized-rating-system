@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import "./css/productdetail.css";
 
 let temptestReviewList = [
@@ -24,7 +25,6 @@ class ProductDetail extends React.Component {
     currentproduct: null,
 
     createrating: {
-      productid: "-1",
       name: "",
       star: 0,
       review_text: "",
@@ -46,24 +46,21 @@ class ProductDetail extends React.Component {
   render() {
     return (
       <>
+        <Link to="/">
+          <div className="productdetail__back-button">
+            <i className="fa-solid fa-angles-left"></i>
+          </div>
+        </Link>
         <section className="productdetail__product-detail-area">
           <div className="productdetail__product-detail-area__container">
             <div className="productdetail__product-detail-area__container__image">
-              <img
-                src="https://i.picsum.photos/id/616/1000/1000.jpg?hmac=0j5j2ct7vJiuBg7Ytve-OR8m13xU_myc5a1Ex_3Egsk"
-                alt=""
-              />
+              <img src={this.state.currentproduct.ImageURL} alt="" />
             </div>
             <div className="productdetail__product-detail-area__container__products-text">
               <div className="productdetail__product-detail-area__container__products-text__text">
-                <h3>Name of product</h3>
-                <h2>$1000.00</h2>
-                <p>
-                  Mill Oil is an innovative oil filled radiator with the most
-                  modern technology. If you are looking for something that can
-                  make your interior look awesome, and at the same time give you
-                  the pleasant warm feeling during the winter.
-                </p>
+                <h3>{this.state.currentproduct.Name}</h3>
+                <h2>${this.state.currentproduct.Price}</h2>
+                <p>{this.state.currentproduct.Details}</p>
               </div>
               <div className="productdetail__product-detail-area__container__products-text__buy-btn">
                 <button
@@ -107,7 +104,7 @@ class ProductDetail extends React.Component {
                           <div className="review-card__name_details__name">
                             <h2>{eachreview.name}</h2>
                             <span>
-                              {setStars(eachreview.star)}
+                              {this.setStars(eachreview.star)}
                               <span className="review-card__name_details__name__date">
                                 {new Date(eachreview.date)
                                   .toString()
@@ -133,14 +130,16 @@ class ProductDetail extends React.Component {
                       type="text"
                       onChange={(e) => {
                         if (parseFloat(e.target.value) > 5) {
-                          console.log(e.target.value);
                           e.target.value = 5;
                         }
                         this.handleInput(e.target.value, "stars");
                       }}
                       style={{ width: "50px" }}
                     />
-                    {setStars(this.state.createrating.star, "yellow set-stars")}
+                    {this.setStars(
+                      this.state.createrating.star,
+                      "yellow set-stars"
+                    )}
                   </h5>
                 </span>
                 <form action="#/" className="form-contact form-review mt-3">
@@ -205,24 +204,32 @@ class ProductDetail extends React.Component {
         });
         break;
     }
-    console.log(this.state.createrating);
+  }
+  setStars(rate, extraclass = "yellow") {
+    if (rate >= 5) rate = 5;
+    let classes = [];
+    while (rate > 0.9) {
+      rate -= 1;
+      classes.push("fa-solid fa-star " + extraclass);
+    }
+    if (classes.length < 5 && rate * 10 > 0)
+      classes.push("fa-solid fa-star-half-stroke " + extraclass);
+
+    while (classes.length < 5) classes.push("fa-regular fa-star " + extraclass);
+    let key = 0;
+    return classes.map((eachstar) => (
+      <i
+        key={(key += 1)}
+        className={eachstar}
+        onClick={() => {
+          // Buggy :'|
+          // this.setState({
+          //   createrating: { ...this.createrating, star: key },
+          // });
+        }}
+      ></i>
+    ));
   }
 }
 
-function setStars(rate, extraclass = "yellow") {
-  if (rate >= 5) rate = 5;
-  let classes = [];
-  while (rate > 0.9) {
-    rate -= 1;
-    classes.push("fa-solid fa-star " + extraclass);
-  }
-  if (classes.length < 5 && rate * 10 > 0)
-    classes.push("fa-solid fa-star-half-stroke " + extraclass);
-
-  while (classes.length < 5) classes.push("fa-regular fa-star " + extraclass);
-  let key = 0;
-  return classes.map((eachstar) => (
-    <i key={(key += 1)} className={eachstar}></i>
-  ));
-}
 export default ProductDetail;

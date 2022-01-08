@@ -28,15 +28,28 @@
   margin: 20px;
   transition: all 0.2s ease;
 }
-.products__products-container__card__card-text {
-  max-height: 20px;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-}
+
 .products__products-container__card:hover {
   transition: 0.3s;
   /* transform: translateX(10px); */
   transform: rotate3d(-1, 1, 0, 19deg) translateY(-10px);
   /* opacity: 0.7; */
+}
+.products__products-container__card__card-body {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+.products__products-container__card__card-body h5 {
+  font-family: "Oswald", sans-serif;
+}
+.products__products-container__card__card-body p,
+h6 {
+  color: #777;
+  font-family: "Roboto", sans-serif;
+  width: 100%;
+  white-space: nowrap;
+  overflow: hidden;
+  text-align: center;
+  text-overflow: ellipsis;
 }

@@ -31,10 +31,8 @@ class Products extends React.Component {
                     alt={eachproduct.Name}
                   />
                   <div className="products__products-container__card__card-body card-body">
-                    <h5 className="products__products-container__card__card-title card-title">
-                      {eachproduct.Name}
-                    </h5>
-                    <p>Rating: 5 ⭐ </p>
+                    <h5>{eachproduct.Name}</h5>
+                    <h6>Rating: 5 ⭐ </h6>
                     <p className="products__products-container__card__card-text card-text">
                       {eachproduct.Details}
                     </p>

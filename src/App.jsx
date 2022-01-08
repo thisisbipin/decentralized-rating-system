@@ -48,8 +48,8 @@ function App() {
   }, []);
   return (
     <>
-      <Header />
       <Router>
+        <Header />
         <Switch>
           <Route
             path="/"
