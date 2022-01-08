@@ -4,7 +4,7 @@
   - [x] Basic Contract ( get Reviews functionality )
   - [x] Handling buyer's auth
   - [x] Buy product, Add product feature
-  - [ ] Owner auth
+  - [x] Owner auth
   - [ ] Reward System
   - [ ] Compile and Deploy
 

@@ -3,7 +3,19 @@ pragma solidity ^0.8.9;
 contract RatingContract {
 
     mapping(uint => uint) productPrice; // number of wei for each pId
-    
+
+    address payable private owner; //The deployer of the contract(store owner)
+
+    constructor() {
+        owner = payable(address(msg.sender));
+    }
+
+    //owner access modifier
+    modifier restricted() {
+        require(msg.sender == owner,"This function can only be called by the owner");
+        _;
+    }
+
     // For storing the ratings and reviews for each product
     struct ProductReview {
         uint points;
@@ -61,9 +73,16 @@ contract RatingContract {
         
     }
 
-    //TODO : implement better owner authentication
-    function addOrEditPrice(uint pId,uint priceWei) public {
+    //--------------------------- Owner section --------------------------------
+
+    //implemented owner authentication
+    function addOrEditPrice(uint pId,uint priceWei) public restricted {
         productPrice[pId] = priceWei;
+    }
+
+    //To withdraw all contract's balance to the owner
+    function withDraw() public restricted {
+        owner.transfer(address(this).balance);
     }
 
     //--------------------------------------------------------------------------
