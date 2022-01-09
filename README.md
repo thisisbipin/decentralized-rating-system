@@ -1,34 +1,3 @@
-# TODO's
-
-- Blockchain Smart Contract
-  - [x] Basic Contract ( get Reviews functionality )
-  - [x] Handling buyer's auth
-  - [x] Buy product, Add product feature
-  - [x] Owner auth
-  - [x] Reward System
-  - [x] Compile and Deploy
-  - [x] Deploy on Polygon with Remix
-
-  Contract deployed to address 0x6aAB3f431d01a36d380188652cAaA73877becc15 with remix.
-
-- Front End
-  - [x] Product Details Page
-  - [x] Product Review Section
-  - [x] Firebase Integration
-  - [x]  Blockchain Integration
-  - [ ]  UI Enhancements
-
-
-# Planning TODO or NOT 
-
-- Blockchain 
-  - [ ] Implement meta transactions ( biconomy )
-  - [x] Find way to reduce gas fee
-
-- Front End
-  - [ ] Admin pannel
-
-
 # Meta Basket ![MetaMask logo](logo.png?raw=true)
 
 ### _A Decentralized-Rating-System_
