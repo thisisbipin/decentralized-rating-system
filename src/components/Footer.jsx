@@ -9,8 +9,8 @@ function Footer() {
           <div className="col-sm-3">
             <h4 className="title">Meta Basket</h4>
             <p>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin
-              suscipit, libero a molestie consectetur, sapien elit lacinia mi.
+            Meta Basket is an online store which has a Decentralized,
+            Blockchain Based, Secured and Trusted Rating System.
             </p>
           </div>
 
