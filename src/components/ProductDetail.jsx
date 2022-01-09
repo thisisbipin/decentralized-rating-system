@@ -41,44 +41,7 @@ class ProductDetail extends React.Component {
     try {
       accounts = await web3.eth.getAccounts();
     } catch (err) {
-      this.state.ismetamaskavailable = false;
-      console.log("please install metamask");
-      return;
-    }
-
-    this.setState({ account: accounts[0] });
-
-    const ratingContract = new web3.eth.Contract(ratingAbi, ratingAddress);
-    this.setState({ ratingContract });
-    console.log(ratingContract);
-
-    const count = await ratingContract.methods
-      .getCount(this.state.productid)
-      .call();
-    let points = await ratingContract.methods
-      .getPoints(this.state.productid)
-      .call();
-    this.setState({ count });
-    this.setState({ points });
-
-    const temptestReviewList = await ratingContract.methods
-      .getReviewList(this.state.productid)
-      .call();
-    this.setState({ temptestReviewList });
-    console.log(temptestReviewList);
-  }
-
-  componentWillMount() {
-    this.loadBlockchainData(this.props.dispatch);
-  }
-
-  async loadBlockchainData() {
-    let accounts;
-    try {
-      accounts = await web3.eth.getAccounts();
-    } catch (err) {
-      this.state.ismetamaskavailable = false;
-      console.log("please install metamask");
+      this.setState({ ismetamaskavailable: false });
       return;
     }
 
@@ -170,13 +133,19 @@ class ProductDetail extends React.Component {
               </div>
               <div className="productdetail__product-detail-area__container__products-text__buy-btn">
                 <button
-                  className="btn btn-warning buy-button"
+                  className={
+                    this.state.ismetamaskavailable === true
+                      ? "btn btn-warning buy-button"
+                      : "btn btn-warning buy-button disabled"
+                  }
                   onClick={() =>
                     this.handleBuy(this.state.currentproduct.Price)
                   }
                 >
-                  <i className="fa-solid fa-cart-shopping"></i> Buy with Meta
-                  Mask
+                  <i className="fa-solid fa-cart-shopping"></i>
+                  {this.state.ismetamaskavailable === true
+                    ? "Buy with Meta Mask"
+                    : "Meta Mask not Available"}
                 </button>
               </div>
             </div>

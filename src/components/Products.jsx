@@ -26,8 +26,8 @@ class Products extends React.Component {
     try {
       accounts = await web3.eth.getAccounts();
     } catch (err) {
-      this.state.ismetamaskavailable = false;
-      console.log("please install metamask");
+      this.setState({ ismetamaskavailable: false });
+      alert("Please install metamask, so that you can buy from our site");
       return;
     }
 
@@ -35,16 +35,14 @@ class Products extends React.Component {
 
     const ratingContract = new web3.eth.Contract(ratingAbi, ratingAddress);
     this.setState({ ratingContract });
-    console.log(ratingContract);
+    // console.log(ratingContract);
 
     const count = await ratingContract.methods.getCount(1).call();
     const points = await ratingContract.methods.getPoints(1).call();
-    console.log(count, points);
   }
 
   componentWillReceiveProps(nextProps) {
     this.setState({ products: nextProps.productsList });
-    console.log(this.state.products);
   }
 
   render() {
@@ -57,7 +55,6 @@ class Products extends React.Component {
           </h1>
           <div className="products__products-container">
             {this.state.products.map((eachproduct) => {
-              console.log(eachproduct);
               return (
                 <Link key={eachproduct.PID} to={"/product/" + eachproduct.PID}>
                   <div className="products__products-container__card card">
