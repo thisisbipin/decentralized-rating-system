@@ -1,0 +1,14 @@
+.header {
+  position: fixed;
+  width: 100%;
+  opacity: 0.9;
+  z-index: 10;
+}
+.dummy-head {
+  width: 100%;
+  height: 70px;
+}
+.header__brand__img {
+  height: 50px;
+  margin: 5px 20px;
+}
