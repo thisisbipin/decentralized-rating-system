@@ -6,6 +6,9 @@
 Meta Basket is an online store which has a Decentralized,
 Blockchain Based, Secured and Trusted Rating System.
 
+![Screenshot of Meta Basket 1](https://user-images.githubusercontent.com/55138889/148669972-b82f3361-3ba5-4578-8505-6bb1d842b474.png)
+![Screenshot of Meta Basket 2](https://user-images.githubusercontent.com/55138889/148669994-05d2f3d2-9929-4f4d-a37c-7b229f080495.png)
+
 ### _Why do we require a decentralized rating system ?_
 - Current rating systems are centralized having a complete 
   control over the ratings database.
