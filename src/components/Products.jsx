@@ -48,6 +48,7 @@ class Products extends React.Component {
   }
 
   render() {
+    if (this.state.products.length === 0) return this.setLoading();
     return (
       <>
         <section className="products">

@@ -15,7 +15,8 @@ class ProductDetail extends React.Component {
 
       ismetamaskavailable: true,
       isreviewFetched: false,
-
+      isreviewWritten: false,
+      reviewWrittenText: "Review Submitted",
       ratingContract: undefined,
       productid: 0,
       currentproduct: null,
@@ -113,16 +114,21 @@ class ProductDetail extends React.Component {
 
   async handleWriteReview(e) {
     e.preventDefault();
-    await this.state.ratingContract.methods
-      .createRating(
-        this.state.productid,
-        this.state.createrating.name,
-        this.state.createrating.star,
-        this.state.createrating.review_text
-      )
-      .send({
-        from: this.state.account,
-      });
+    try {
+      await this.state.ratingContract.methods
+        .createRating(
+          this.state.productid,
+          this.state.createrating.name,
+          this.state.createrating.star,
+          this.state.createrating.review_text
+        )
+        .send({
+          from: this.state.account,
+        });
+    } catch (e) {
+      this.setState({ reviewWrittenText: "Some Error, Try Again" });
+    }
+    this.setState({ isreviewWritten: true });
   }
 
   async handleBuy(Pprice) {
@@ -278,10 +284,21 @@ class ProductDetail extends React.Component {
                   </div>
                   <div className="form-group text-center text-md-right mt-3">
                     <button
-                      className="btn btn-primary"
+                      className={
+                        this.state.isreviewWritten
+                          ? "btn btn-primary disabled"
+                          : "btn btn-primary"
+                      }
                       onClick={(e) => this.handleWriteReview(e)}
                     >
-                      <i className="fa-solid fa-pen-nib"></i> | Write my Review
+                      {this.state.isreviewWritten == true ? (
+                        this.state.reviewWrittenText
+                      ) : (
+                        <>
+                          <i className="fa-solid fa-pen-nib"></i>
+                          <span> | Write my Review</span>{" "}
+                        </>
+                      )}
                     </button>
                   </div>
                 </form>

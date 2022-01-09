@@ -11,24 +11,7 @@ import { db } from "./components/firebase/Fire";
 import fire from "./components/firebase/Fire";
 
 function App() {
-  let [productsList, setProductsList] = useState([
-    {
-      PID: 1,
-      Name: "Laptop",
-      ImageURL:
-        "https://i.picsum.photos/id/188/300/300.jpg?hmac=O1Fgsa5q091m_1eNHYtavDoVNb6yIklGq1A67yv5_vk",
-      Price: 20,
-      Details: "Fetching",
-    },
-    {
-      PID: 2,
-      Name: "Phone",
-      ImageURL:
-        "https://i.picsum.photos/id/339/300/300.jpg?hmac=OGGRAko85waj1sgpjCL-gLOfoqFVF4167VXJk3sOx4E",
-      Price: 20,
-      Details: "Fetching",
-    },
-  ]);
+  let [productsList, setProductsList] = useState([]);
   useEffect(() => {
     db.collection("productData")
       .get()
