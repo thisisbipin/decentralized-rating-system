@@ -143,6 +143,10 @@
   font-weight: normal;
 }
 
+/* .productdetail__product-review-area__container__content__reviews__all-reviews {
+  overflow-y: scroll;
+} */
+
 .productdetail__product-review-area__container__content__reviews__all-reviews__review-card {
   color: #777;
   font-family: "Roboto", sans-serif;

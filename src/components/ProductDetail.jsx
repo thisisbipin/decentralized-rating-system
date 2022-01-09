@@ -65,6 +65,42 @@ class ProductDetail extends React.Component {
       .call();
     this.setState({ temptestReviewList });
     console.log(temptestReviewList);
+  }
+
+  componentWillMount() {
+    this.loadBlockchainData(this.props.dispatch);
+  }
+
+  async loadBlockchainData() {
+    let accounts;
+    try {
+      accounts = await web3.eth.getAccounts();
+    } catch (err) {
+      this.state.ismetamaskavailable = false;
+      console.log("please install metamask");
+      return;
+    }
+
+    this.setState({ account: accounts[0] });
+
+    const ratingContract = new web3.eth.Contract(ratingAbi, ratingAddress);
+    this.setState({ ratingContract });
+    console.log(ratingContract);
+
+    const count = await ratingContract.methods
+      .getCount(this.state.productid)
+      .call();
+    let points = await ratingContract.methods
+      .getPoints(this.state.productid)
+      .call();
+    this.setState({ count });
+    this.setState({ points });
+
+    const temptestReviewList = await ratingContract.methods
+      .getReviewList(this.state.productid)
+      .call();
+    this.setState({ temptestReviewList });
+    console.log(temptestReviewList);
     this.setState({ isreviewFetched: true });
   }
 
@@ -227,7 +263,6 @@ class ProductDetail extends React.Component {
                       onChange={(e) => this.handleInput(e.target.value, "name")}
                     />
                   </div>
-
                   <div className="form-group">
                     <textarea
                       className="form-control different-control w-100"
