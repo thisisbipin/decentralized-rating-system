@@ -69,7 +69,7 @@ class Products extends React.Component {
                     <div className="products__products-container__card__card-body card-body">
                       <h5>{eachproduct.Name}</h5>
                       <h6>
-                        <b>Price:</b> {eachproduct.Price} ETH{" "}
+                        <b>Price:</b> {eachproduct.Price} MATIC{" "}
                       </h6>
                       <p className="products__products-container__card__card-text card-text">
                         {eachproduct.Details}

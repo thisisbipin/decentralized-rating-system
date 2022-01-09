@@ -165,7 +165,7 @@ class ProductDetail extends React.Component {
             <div className="productdetail__product-detail-area__container__products-text">
               <div className="productdetail__product-detail-area__container__products-text__text">
                 <h3>{this.state.currentproduct.Name}</h3>
-                <h2>{this.state.currentproduct.Price} ETH</h2>
+                <h2>{this.state.currentproduct.Price} MATIC</h2>
                 <p>{this.state.currentproduct.Details}</p>
               </div>
               <div className="productdetail__product-detail-area__container__products-text__buy-btn">
