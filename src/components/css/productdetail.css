@@ -32,6 +32,9 @@
   /* max-width: 500px;/ */
   flex: 0.5;
   padding: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 .productdetail__product-detail-area__container__image img {
   width: 100%;
@@ -213,4 +216,12 @@
   .productdetail__product-review-area__container__content__create-review-box {
     padding: 20px 50px;
   }
+}
+
+.productdetail__loader {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 200px;
 }
