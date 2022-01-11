@@ -2,7 +2,6 @@
 
 ### _A Decentralized-Rating-System_
 
-
 Meta Basket is an online store which has a Decentralized,
 Blockchain Based, Secured and Trusted Rating System.
 
@@ -10,28 +9,27 @@ Blockchain Based, Secured and Trusted Rating System.
 ![Screenshot of Meta Basket 2](https://user-images.githubusercontent.com/55138889/148669994-05d2f3d2-9929-4f4d-a37c-7b229f080495.png)
 
 ### _Why do we require a decentralized rating system ?_
-- Current rating systems are centralized having a complete 
+
+- Current rating systems are centralized having a complete
   control over the ratings database.
 - Central authorities can edit / delete negative ratings to avoid their defamation.
 - It can led to huge rating scams with a purpose to attract buyers.
 
-
 ### _How Blockchain will solve this problem ?_
 
-- A Blockchain network is a decentralized, distributed ledger which 
-  has rigorous Cryptographic concepts, Consensus mechanisms which 
+- A Blockchain network is a decentralized, distributed ledger which
+  has rigorous Cryptographic concepts, Consensus mechanisms which
   makes it reliable, trustworthy and impossible to hack.
 - Any thing written in blockchain can’t be removed unless done legally, making rating systems consumer friendly.
 - It will also ensure that our system doesn't have single point of faliure.
-
 
 ## Features
 
 - Provides trustworthy ratings for products.
 - Ratings can't be manipulated illegally.
 - Secured p2p payments using MetaMask.
+- Users are incentivised for the ratings that they give.
 - User friendly and clean UI.
-
 
 ## Tech
 
@@ -44,10 +42,13 @@ Blockchain Based, Secured and Trusted Rating System.
 - [Bootstrap](https://getbootstrap.com/)
 - [HTML & CSS](https://developer.mozilla.org/en-US/docs/Web/HTML)
 
+## About contract and reward system
+
+- Contract is deployed at 0xc27a183Df3c58c74CE199A77bBb7390105422d30.
+- To get the reward tokens after creating rating go to assets in metamask
+  import tokens using this address and it can be swapped with matic tokens
+  using [QuickSwap](https://quickswap.exchange/#/swap) on Polygon Mumbai test net.
 
 ## Desgin of Meta Basket
 
 ![untitled@1 25x](https://user-images.githubusercontent.com/58695354/148669531-0c01901c-9e52-458b-922b-f4503fd3d341.png)
-
-
-
